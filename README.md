@@ -1,4 +1,6 @@
 # Alpha Nvim
+![logo][logo]
+[logo]: assets/logo.png
  Nvim config made to work similar like coding IDE.
 
 # Installation :arrow_down_small:
