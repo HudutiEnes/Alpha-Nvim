@@ -10,6 +10,6 @@ Config is built with built in lsp, it has installed plugin for running code ,
 it has few language servers installed manually but you can install more with
 ` :Mason ` . Dashboard plugin is alpha nvim.
 
-# Errors
+# Errors :bangbang:
 If you find some errors or some fix please write in issues tab above.
 Feel free to contribute to the project if you have ideas .
