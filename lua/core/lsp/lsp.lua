@@ -9,6 +9,19 @@ lsp.ensure_installed({
 	"clangd",
 })
 
+lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = '',
+    },
+    update_in_insert = true,
+    float = {
+        source = "always",
+    },
+})
+
+
 --local cmp = require("cmp")
 --local luasnip = require("luasnip")
 --local lspkind = require("lspkind")
@@ -98,5 +111,3 @@ lsp.ensure_installed({
 --		}),
 --	},
 --})
-
-lsp.setup()

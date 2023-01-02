@@ -77,7 +77,7 @@ ts_configs.setup({
 	highlight = {
 		-- TreeSitter's highlight/syntax support is yet experimental and has some issues.
 		-- It overrides legacy filetype-based vim syntax, and colorscheme needs to be treesitter-aware.
-		enable = false, -- TODO: Enable again when it becomes mature and usable enough.
+		enable = true, -- TODO: Enable again when it becomes mature and usable enough.
 
 		-- List of language that will be disabled.
 		-- For example, some non-programming-language filetypes (e.g., fzf) should be

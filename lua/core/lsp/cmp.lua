@@ -3,7 +3,6 @@
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
 
 local import_cmp, cmp = pcall(require, "cmp")
 if not import_cmp then
@@ -31,7 +30,7 @@ cmp.setup({
 	-- end,
 
 	completion = {
-		-- completeopt = 'menu,menuone,noinsert',
+		completeopt = "menu,menuone,noinsert",
 	},
 
 	snippet = {
@@ -86,9 +85,9 @@ cmp.setup({
 
 			-- set a name for each source
 			vim_item.menu = ({
-				buffer = "[Buffer]",
+				buffer = "[Buff]",
 				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
+				luasnip = "[Snip]",
 				nvim_lua = "[Lua]",
 				latex_symbols = "[LaTeX]",
 			})[entry.source.name]
@@ -99,11 +98,11 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 		-- {name = 'nvim_lsp_signature_help' }, -- using ray-x/lsp_signature.nvim instead
 		{ name = "nvim_lua" },
 		{ name = "path" },
-		{ name = "luasnip" },
-		{ name = "buffer", keyword_length = 1 },
+		{ name = "buffer", keyword_length = 3 },
 		-- {name = 'calc'},
 	},
 

@@ -1,6 +1,5 @@
 require ("core.lsp.lsp")
 require("core.lsp.null-ls")
-require("core.lsp.handlers")
-require("core.lsp.diagnostics")
+--require("core.lsp.handlers")
 require("core.lsp.peekdef")
 require("core.lsp.cmp")
