@@ -1,7 +1,7 @@
 require ("core.plugins.colorscheme")
 require ("core.plugins.bufferline")
 require ("core.plugins.indentline")
-require ("core.plugins.nvim-tree")
+--require ("core.plugins.nvim-tree")
 require ("core.plugins.telescope")
 require ("core.plugins.treesitter")
 require ("core.plugins.toggleterm")

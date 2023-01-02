@@ -4,8 +4,8 @@
  Nvim config made to work similar like coding IDE.
 
 # Installation :arrow_down_small:
-For installing please don't copy and paste the config. You first need to
-copy plugins and run ` :PackerSync ` and after that you can copy configuration.
+You first need to clone project with `git clone https://github.com/HudutiEnes/Alpha-Nvim ~/.config/nvim`
+ignore the errors at first than run ` :PackerInstall `.
 
 # About :interrobang:
 Config is built with built with lsp language servers, it have plugin for running code ,
