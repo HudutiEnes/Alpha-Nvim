@@ -99,7 +99,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		-- {name = 'nvim_lsp_signature_help' }, -- using ray-x/lsp_signature.nvim instead
+		{name = 'nvim_lsp_signature_help' }, -- using ray-x/lsp_signature.nvim instead
 		{ name = "nvim_lua" },
 		{ name = "path" },
 		{ name = "buffer", keyword_length = 3 },
@@ -117,6 +117,7 @@ cmp.setup({
 
 	experimental = {
 		ghost_text = true,
+        native_menu = false,
 	},
 })
 

@@ -10,10 +10,13 @@ lsp.ensure_installed({
 })
 
 lsp.setup()
-
 vim.diagnostic.config({
+    underline = true,
+    signs = true,
     virtual_text = {
         prefix = '',
+        spacing = 5,
+        severity_limit = 'Warning',
     },
     update_in_insert = true,
     float = {
@@ -21,6 +24,16 @@ vim.diagnostic.config({
     },
 })
 
+require'lspconfig'.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}
 
 --local cmp = require("cmp")
 --local luasnip = require("luasnip")
