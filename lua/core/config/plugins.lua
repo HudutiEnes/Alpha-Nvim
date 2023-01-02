@@ -48,7 +48,6 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("p00f/nvim-ts-rainbow") --colorized punctuation signs
 	use("akinsho/toggleterm.nvim")
-	use("mg979/vim-visual-multi")
 
 	--color schemes
 	use({
@@ -181,14 +180,6 @@ return packer.startup(function(use)
 	})
 
 	use({ "kevinhwang91/nvim-hlslens" })
-
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
-	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
