@@ -11,29 +11,39 @@ lsp.ensure_installed({
 
 lsp.setup()
 vim.diagnostic.config({
-    underline = true,
-    signs = true,
-    virtual_text = {
-        prefix = '',
-        spacing = 5,
-        severity_limit = 'Warning',
-    },
-    update_in_insert = true,
-    float = {
-        source = "always",
-    },
+	underline = true,
+	signs = true,
+	virtual_text = {
+		prefix = "",
+		spacing = 5,
+		severity_limit = "Warning",
+	},
+	update_in_insert = true,
+	float = {
+		source = "always",
+	},
 })
 
-require'lspconfig'.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-    },
-  },
-}
+require("lspconfig").sumneko_lua.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+		},
+	},
+})
+
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
 
 --local cmp = require("cmp")
 --local luasnip = require("luasnip")

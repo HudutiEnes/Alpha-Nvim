@@ -58,8 +58,8 @@ Option.g({
     swapfile = false,
 
     --enable unlimited undo's
-    undodir = os.getenv("HOME").."/vim/undodir",
     undofile = true,
+    undodir = os.getenv("HOME").."/vim/undodir",
 
     -- write changes to swap file after "n" ms
     -- for some reason when the updatetime is high, autocompletion in coc nvim
