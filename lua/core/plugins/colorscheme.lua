@@ -9,5 +9,10 @@
 --vim.g.tokyodark_enable_italic = false
 --vim.g.tokyodark_color_gamma = "1.1"
 --vim.cmd("colorscheme tokyodark")
-
-vim.cmd([[colorscheme vn-night]])
+require("tokyonight").setup({
+    style = "storm",
+    light_style = "day",
+    transparent = true,
+    terminal_colors = true,
+})
+vim.cmd([[colorscheme tokyonight]])

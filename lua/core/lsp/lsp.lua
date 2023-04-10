@@ -1,28 +1,12 @@
-local lsp = require("lsp-zero")
-lsp.preset("recommended")
+local lsp = require("lsp-zero").preset({})
 
 lsp.ensure_installed({
 	"tsserver",
 	"eslint",
-	"sumneko_lua",
 	"rust_analyzer",
 	"clangd",
 })
 
-lsp.setup()
-vim.diagnostic.config({
-	underline = true,
-	signs = true,
-	virtual_text = {
-		prefix = "",
-		spacing = 5,
-		severity_limit = "Warning",
-	},
-	update_in_insert = true,
-	float = {
-		source = "always",
-	},
-})
 
 require("lspconfig").sumneko_lua.setup({
 	settings = {
@@ -45,6 +29,37 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+lsp.setup()
+
+--lsp.setup()
+vim.diagnostic.config({
+	underline = true,
+	signs = true,
+	virtual_text = {
+		prefix = "",
+		spacing = 5,
+--        severity_sort = true,
+		severity_limit = "Warning",
+	},
+    severity_sort = true,
+	update_in_insert = true,
+    float = {
+        source = "always",
+        border = "rounded",
+    },
+})
+
+
+	--	float = {
+	--		focusable = true,
+	--		style = "minimal",
+	--		border = "rounded",
+	--		source = "always",
+	--		header = "",
+	--		prefix = "",
+    --
+    --
+    --
 --local cmp = require("cmp")
 --local luasnip = require("luasnip")
 --local lspkind = require("lspkind")

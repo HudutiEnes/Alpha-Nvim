@@ -57,8 +57,12 @@ return packer.startup(function(use)
 		"ray-x/starry.nvim",
 		"sainnhe/sonokai",
 		"bluz71/vim-moonfly-colors",
-		"1995parham/naz.vim",
+		"lalitmee/cobalt2.nvim",
+		"uloco/bluloco.nvim",
+		"EdenEast/nightfox.nvim",
+		"folke/tokyonight.nvim",
 	})
+
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
