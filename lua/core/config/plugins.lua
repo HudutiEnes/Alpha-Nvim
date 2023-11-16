@@ -54,7 +54,6 @@ return packer.startup(function(use)
 		"nxvu699134/vn-night.nvim",
 		"tiagovla/tokyodark.nvim",
 		"ray-x/aurora",
-		"ray-x/starry.nvim",
 		"sainnhe/sonokai",
 		"bluz71/vim-moonfly-colors",
 		"lalitmee/cobalt2.nvim",
@@ -62,7 +61,6 @@ return packer.startup(function(use)
 		"EdenEast/nightfox.nvim",
 		"folke/tokyonight.nvim",
 	})
-
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
@@ -88,14 +86,40 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("lewis6991/nvim-treesitter-context")
-
-	-- Treesitter
 	use({
-		"nvim-treesitter/nvim-treesitter",
-		"windwp/nvim-ts-autotag",
-		run = ":TSUpdate",
+		"Exafunction/codeium.vim",
+		config = function()
+			-- Change '<C-g>' here to any keycode you like.
+			vim.keymap.set("i", "<C-a>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<c-;>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true })
+			vim.keymap.set("i", "<c-,>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true })
+			vim.keymap.set("i", "<c-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true })
+		end,
 	})
 
+	-- Treesitter
+use({{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function ()
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },
+        })
+    end
+ }})
 	use({
 		"mcauley-penney/tidy.nvim",
 		config = function()
@@ -112,10 +136,10 @@ return packer.startup(function(use)
 	})
 
 	--lualine
-	--use({
-	--	"nvim-lualine/lualine.nvim",
-	--	requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	--	})
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
 	use({
 		"xeluxee/competitest.nvim",
@@ -125,10 +149,10 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use({
-		"windwp/windline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	--	use({
+	--		"windwp/windline.nvim",
+	--		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	--	})
 
 	use({
 		"gelguy/wilder.nvim",
@@ -183,13 +207,7 @@ return packer.startup(function(use)
 		"ThePrimeagen/vim-be-good",
 	})
 
-	--Lines
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({ filetype_exclude = { "dashboard" } })
-		end,
-	})
+	use ({ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} })
 
 	use({ "kevinhwang91/nvim-hlslens" })
 
